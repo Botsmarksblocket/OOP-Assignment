@@ -15,14 +15,15 @@ namespace OperationOOP.Core.Models
         public int AgeYears { get; set; }
         public DateTime LastWatered { get; set; }
         public DateTime LastPruned { get; set; }
-        public CareLevel CareLevel { get; set; }
+        public PlantCareLevel CareLevel { get; set; }
 
+        public enum PlantCareLevel
+        {
+            Beginner,
+            Intermediate,
+            Advanced,
+            Master
+        }
     }
-    public enum CareLevel
-    {
-        Beginner,
-        Intermediate,
-        Advanced,
-        Master
-    }
+
 }
