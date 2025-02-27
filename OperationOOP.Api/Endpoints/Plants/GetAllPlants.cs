@@ -13,8 +13,8 @@ namespace OperationOOP.Api.Endpoints.Plants
         // Response
         public record Response(
             int Id,
-            string Species,
             string Name,
+            string Species,
             DateTime LastWatered,
             DateTime LastPruned,
             PlantCareLevel CareLevel

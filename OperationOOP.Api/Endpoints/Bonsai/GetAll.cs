@@ -1,12 +1,12 @@
 ﻿//namespace OperationOOP.Api.Endpoints;
 //public class GetAllBonsais : IEndpoint
 //{
-//    // Mapping
+//     Mapping
 //    public static void MapEndpoint(IEndpointRouteBuilder app) => app
 //        .MapGet("/bonsais", Handle)
 //        .WithSummary("Bonsai trees");
 
-//    // Request and Response types
+//     Request and Response types
 //    public record Response(
 //        int Id,
 //        string Name,
@@ -14,7 +14,7 @@
 //        DateTime LastPruned
 //    );
 
-//    //Logic
+//    Logic
 //    private static List<Response> Handle(IDatabase db)
 //    {
 //        return db.Bonsais

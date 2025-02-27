@@ -41,6 +41,7 @@ namespace OperationOOP.Api
 
             app.UseAuthorization();
 
+            Delete.MapEndpoint(app);
             CreateBonsai.MapEndpoint(app);
             app.MapEndpoints<Program>();
 

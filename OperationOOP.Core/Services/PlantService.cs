@@ -34,5 +34,15 @@ namespace OperationOOP.Core.Services
 
             _database.Plants.Add(plant);
         }
+
+        public void Delete(int id)
+        {
+            var plant = GetById(id);
+            if ( plant != null)
+            {
+                _database.Plants.Remove(plant);
+            }
+
+        }
     }
 }

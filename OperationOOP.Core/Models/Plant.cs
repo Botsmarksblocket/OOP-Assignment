@@ -25,5 +25,4 @@ namespace OperationOOP.Core.Models
             Master
         }
     }
-
 }

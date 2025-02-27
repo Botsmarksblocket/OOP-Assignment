@@ -28,8 +28,16 @@ namespace OperationOOP.Api.Endpoints.Plants
             int Id
             );
 
+
+        //Creates a new Bonsai object and saves it using IPlantService.
+        //Returns a 201 created response with the Bonsai's id
         public static IResult Handle(Request request, IPlantService plantService)
         {
+
+            if(request.AgeYears < 0)
+            {
+                return Results.BadRequest("Age cannot be negative");
+            }
 
             var bonsai = new Bonsai()
             {
