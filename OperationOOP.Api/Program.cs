@@ -1,7 +1,10 @@
 
 using Microsoft.Extensions.Options;
 using OperationOOP.Api.Endpoints;
+using OperationOOP.Api.Endpoints.Plants;
 using OperationOOP.Core.Data;
+using OperationOOP.Core.Interfaces;
+using OperationOOP.Core.Services;
 
 namespace OperationOOP.Api
 {
@@ -22,7 +25,8 @@ namespace OperationOOP.Api
                 options.InferSecuritySchemes();
             });
 
-            builder.Services.AddSingleton<IDatabase, Database>();
+            builder.Services.AddSingleton<IDatabase, Database>();            
+            builder.Services.AddSingleton<IPlantService, PlantService>();
 
             var app = builder.Build();
 
@@ -37,6 +41,8 @@ namespace OperationOOP.Api
 
             app.UseAuthorization();
 
+            Delete.MapEndpoint(app);
+            CreateBonsai.MapEndpoint(app);
             app.MapEndpoints<Program>();
 
             app.Run();

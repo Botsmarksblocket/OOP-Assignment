@@ -7,22 +7,29 @@ using OperationOOP.Core.Interfaces;
 
 namespace OperationOOP.Core.Models
 {
+    //Superclass which the other plants inherit from
     public abstract class Plant : IEntity
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Species { get; set; }
-        public int AgeYears { get; set; }
-        public DateTime LastWatered { get; set; }
-        public DateTime LastPruned { get; set; }
-        public CareLevel CareLevel { get; set; }
+        public string Name { get; private set; }
+        public string Species { get; private set; }
+        public int AgeYears { get; private set; }
+        public PlantCareLevel CareLevel { get; private set; }
 
-    }
-    public enum CareLevel
-    {
-        Beginner,
-        Intermediate,
-        Advanced,
-        Master
+        protected Plant(string name, string species, int ageYears, PlantCareLevel careLevel)
+        {
+            Name = name;
+            Species = species;
+            AgeYears = ageYears;
+            CareLevel = careLevel;
+        }
+
+        public enum PlantCareLevel
+        {
+            Beginner,
+            Intermediate,
+            Advanced,
+            Master
+        }
     }
 }
