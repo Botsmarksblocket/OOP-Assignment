@@ -18,8 +18,6 @@ namespace OperationOOP.Api.Endpoints.Plants
             string Name,
             string Species,
             int AgeYears,
-            DateTime LastWatered,
-            DateTime LastPruned,
             PlantCareLevel CareLevel,
             BonsaiStyle Style
             );
@@ -39,15 +37,9 @@ namespace OperationOOP.Api.Endpoints.Plants
                 return Results.BadRequest("Age cannot be negative");
             }
 
-            var bonsai = new Bonsai()
+            var bonsai = new Bonsai(request.Name, request.Species,request.AgeYears,request.CareLevel,request.Style)
             {
-                Name = request.Name,
-                Species = request.Species,
-                AgeYears = request.AgeYears,
-                LastWatered = request.LastWatered,
-                LastPruned = request.LastPruned,
-                CareLevel = request.CareLevel,
-                Style = request.Style
+
             };
 
             plantService.Create(bonsai);

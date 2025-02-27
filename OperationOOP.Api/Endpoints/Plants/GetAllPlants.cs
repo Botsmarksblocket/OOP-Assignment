@@ -15,9 +15,7 @@ namespace OperationOOP.Api.Endpoints.Plants
             int Id,
             string Name,
             string Species,
-            DateTime LastWatered,
-            DateTime LastPruned,
-            PlantCareLevel CareLevel
+            string CareLevel
             );
 
 
@@ -26,15 +24,13 @@ namespace OperationOOP.Api.Endpoints.Plants
         private static IResult Handle(IPlantService plantService)
         {
             var plants = plantService.GetAll();
-            
+
             var response = plants.Select
-                ( item  => new Response(
-                Id : item.Id,
+                (item => new Response(
+                Id: item.Id,
                 Name: item.Name,
                 Species: item.Species,
-                LastWatered: item.LastWatered,
-                LastPruned: item.LastPruned,
-                CareLevel: item.CareLevel   
+                CareLevel: item.CareLevel.ToString()
                 ))
                 .ToList();
 

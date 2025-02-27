@@ -10,9 +10,11 @@ namespace OperationOOP.Api.Endpoints.Plants
         public static void MapEndpoint(IEndpointRouteBuilder app) => app
             .MapDelete("/plants/{id:int}", Handle);
 
+        //Deletes a plant with a specifik ID
+        //If the ID doesn't exist, returns 404 not found
+        //If the ID exists, plant gets removed and returns 204
         private static IResult Handle(int id, IPlantService plantService)
-        {
-            
+        {            
             var plant = plantService.GetById(id);
 
             if (plant == null)
