@@ -1,6 +1,7 @@
 ﻿using OperationOOP.Core.Interfaces;
 using static OperationOOP.Core.Models.Plant;
 
+
 namespace OperationOOP.Api.Endpoints.Plants
 {
     public class GetAllPlants : IEndpoint
@@ -9,36 +10,35 @@ namespace OperationOOP.Api.Endpoints.Plants
         public static void MapEndpoint(IEndpointRouteBuilder app) => app
             .MapGet("/plants", Handle);
 
-
-
         // Response
         public record Response(
             int Id,
             string Species,
+            string Name,
             DateTime LastWatered,
             DateTime LastPruned,
             PlantCareLevel CareLevel
             );
 
 
-
-        // Logic
-
-        private static List<Response> Handle(IPlantService plantService)
+        //Retrieves all plants from the plant service and maps them to a response DTO.
+        //Returns a list of responses as 200 OK result.
+        private static IResult Handle(IPlantService plantService)
         {
             var plants = plantService.GetAll();
             
-            plants.Select ( item  => new Response(
+            var response = plants.Select
+                ( item  => new Response(
                 Id : item.Id,
+                Name: item.Name,
                 Species: item.Species,
                 LastWatered: item.LastWatered,
                 LastPruned: item.LastPruned,
-                CareLevel: item.CareLevel                
-                )).ToList();
-        
+                CareLevel: item.CareLevel   
+                ))
+                .ToList();
 
-
-
+            return Results.Ok(response);
         }
     }
 }

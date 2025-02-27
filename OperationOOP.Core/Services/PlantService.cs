@@ -26,13 +26,13 @@ namespace OperationOOP.Core.Services
         {
             return _database.Plants.FirstOrDefault(p => p.Id == id);
         }
-        public void Add(Plant plant)
+        public void Create(Plant plant)
         {
             plant.Id = _database.Plants.Any()
                        ? _database.Plants.Max(plant => plant.Id) + 1
                        : 1;
 
-
+            _database.Plants.Add(plant);
         }
     }
 }

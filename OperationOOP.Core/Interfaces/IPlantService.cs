@@ -11,6 +11,6 @@ namespace OperationOOP.Core.Interfaces
     {
         List<Plant> GetAll();
         Plant GetById(int id);
-        void Add (Plant plant);
+        void Create (Plant plant);
     }
 }

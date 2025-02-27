@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace OperationOOP.Core.Interfaces
 {
-    internal interface IEntity
+    interface IEntity
     {
-        int Id { get; set; }
+         int Id { get; set; }
     }
 }
