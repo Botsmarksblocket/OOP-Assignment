@@ -1,18 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using OperationOOP.Core.Interfaces;
-using System.Reflection.Metadata;
-using OperationOOP.Core.Models;
-using System.ComponentModel.DataAnnotations;
-using System.Reflection.Metadata.Ecma335;
+﻿using OperationOOP.Core.Interfaces;
 
-namespace OperationOOP.Api.Endpoints.StrawberryEndpoint;    
+namespace OperationOOP.Api.Endpoints.DeadlyNightshadeEndpoint;
 
 public class Create : IEndpoint
 {
     // Mapping
     public static void MapEndpoint(IEndpointRouteBuilder app) => app
-        .MapPost("/strawberry", Handle)
-        .WithSummary("Create Strawberry plant");
+        .MapPost("/deadlynightshade", Handle)
+        .WithSummary("Create a deadly nightshade plant");
 
     //Request and response
     public record Request(
@@ -20,7 +15,8 @@ public class Create : IEndpoint
         string Species,
         int AgeYears,
         PlantCareLevel CareLevel,
-        bool HasRipeBerry
+        bool HasRipeBerry,
+        bool HasPoisonousBerry
         );
 
     public record Response(
@@ -39,14 +35,14 @@ public class Create : IEndpoint
             return Results.BadRequest("Age cannot be negative");
         }
 
-        var strawberry = new Strawberry(request.Name, request.Species, request.AgeYears, request.CareLevel)
+        var deadlyNightshade = new Core.Models.DeadlyNightshade(request.Name, request.Species, request.AgeYears, request.CareLevel)
         {
             HasRipeBerry = request.HasRipeBerry,
+            HasPoisonousBerry = request.HasPoisonousBerry
         };
 
+        plantService.Create(deadlyNightshade);
 
-        plantService.Create(strawberry);
-
-        return Results.Created($"/strawberry/{strawberry.Id}", new Response(strawberry.Id));
+        return Results.Created($"/deadlynightshade/{deadlyNightshade.Id}", new Response(deadlyNightshade.Id));
     }
 }

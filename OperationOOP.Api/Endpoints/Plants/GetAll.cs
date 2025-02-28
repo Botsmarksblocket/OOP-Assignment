@@ -24,12 +24,11 @@ namespace OperationOOP.Api.Endpoints.Plants
             var plants = plantService.GetAll();
 
             var response = plants.Select
-                (item => new Response(
-                Id: item.Id,
-                Name: item.Name,
-                Species: item.Species,
-                //Shows the string value of the CareLevel, not the enumvalue
-                CareLevel: item.CareLevel
+                (plant => new Response(
+                Id: plant.Id,
+                Name: plant.Name,
+                Species: plant.Species,
+                CareLevel: plant.CareLevel
                 ))
                 .ToList();
 

@@ -13,25 +13,24 @@ public class GetAll : IEndpoint
         int Id,
         string Name,
         string Species,
-        string CareLevel
+        PlantCareLevel CareLevel,
+        bool HasRipeBerry
         );
 
-    //Retrieves all plants from the plant service and maps them to a response DTO.
+    //Retrieves all strawberries from the plant service and maps them to a response DTO.
     //Returns a list of responses as 200 OK result.
     private static IResult Handle(IPlantService plantService)
     {
         var plants = plantService.GetAll();
 
-        var response = plants.Select
-            (item => new Response(
-            Id: item.Id,
-            Name: item.Name,
-            Species: item.Species,
-            //Shows the string value of the CareLevel, not the enumvalue
-            CareLevel: item.CareLevel.ToString()
-            ))
-            .ToList();
-
-        return Results.Ok(response);
+        return Results.Ok(plants.OfType<Strawberry>()
+                           .Select(strawberry => new Response(
+                               strawberry.Id,
+                               strawberry.Name,
+                               strawberry.Species,
+                               strawberry.CareLevel,
+                               strawberry.HasRipeBerry
+                               ))
+                           .ToList());
     }
 }

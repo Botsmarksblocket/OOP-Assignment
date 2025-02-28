@@ -4,7 +4,7 @@ using System.Reflection.Metadata;
 
 namespace OperationOOP.Api.Endpoints.Plants
 {
-    public class Delete
+    public class Delete : IEndpoint
     {
         // Mapping
         public static void MapEndpoint(IEndpointRouteBuilder app) => app

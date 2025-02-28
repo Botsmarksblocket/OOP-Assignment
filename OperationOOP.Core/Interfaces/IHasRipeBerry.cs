@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace OperationOOP.Core.Interfaces
 {
-    public interface IHasFruit
+    public interface IHasRipeBerry
     {
-        bool HasFruit { get; }
-        bool EdibleFruit { get; }
+        bool HasRipeBerry { get; set; }
     }
 
-    public interface IHasPoisonousFruit : IHasFruit
+    public interface IHasPoisonousBerry : IHasRipeBerry
     {
-        bool HasPoisonousFruit { get; }
+        bool HasPoisonousBerry { get; }
     }
 }

@@ -25,6 +25,8 @@ namespace OperationOOP.Core.Models
             CareLevel = careLevel;
         }
     }
+
+    //Jsonconverter to show the carelevel as a string instead of an int
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum PlantCareLevel
     {
