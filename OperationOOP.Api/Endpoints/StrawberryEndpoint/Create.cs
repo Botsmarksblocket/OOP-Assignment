@@ -5,10 +5,9 @@ using OperationOOP.Core.Models;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection.Metadata.Ecma335;
 
+namespace OperationOOP.Api.Endpoints.StrawberryEndpoint;    
 
-namespace OperationOOP.Api.Endpoints.StrawberryEndpoints;    
-
-public class CreateStrawberryPlant
+public class Create
 {
     // Mapping
     public static void MapEndpoint(IEndpointRouteBuilder app) => app

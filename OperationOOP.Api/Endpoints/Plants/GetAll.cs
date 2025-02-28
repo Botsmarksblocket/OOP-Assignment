@@ -3,7 +3,7 @@
 
 namespace OperationOOP.Api.Endpoints.Plants
 {
-    public class GetAllPlants : IEndpoint
+    public class GetAll : IEndpoint
     {
         // Mapping
         public static void MapEndpoint(IEndpointRouteBuilder app) => app
@@ -14,7 +14,7 @@ namespace OperationOOP.Api.Endpoints.Plants
             int Id,
             string Name,
             string Species,
-            string CareLevel
+            PlantCareLevel CareLevel
             );
 
         //Retrieves all plants from the plant service and maps them to a response DTO.
@@ -29,7 +29,7 @@ namespace OperationOOP.Api.Endpoints.Plants
                 Name: item.Name,
                 Species: item.Species,
                 //Shows the string value of the CareLevel, not the enumvalue
-                CareLevel: item.CareLevel.ToString()
+                CareLevel: item.CareLevel
                 ))
                 .ToList();
 

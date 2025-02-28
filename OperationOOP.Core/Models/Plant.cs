@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using OperationOOP.Core.Interfaces;
 
@@ -24,6 +25,7 @@ namespace OperationOOP.Core.Models
             CareLevel = careLevel;
         }
     }
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum PlantCareLevel
     {
         Beginner,
