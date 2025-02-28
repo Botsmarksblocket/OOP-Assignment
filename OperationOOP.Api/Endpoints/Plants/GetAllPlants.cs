@@ -1,5 +1,4 @@
 ﻿using OperationOOP.Core.Interfaces;
-using static OperationOOP.Core.Models.Plant;
 
 
 namespace OperationOOP.Api.Endpoints.Plants
@@ -18,7 +17,6 @@ namespace OperationOOP.Api.Endpoints.Plants
             string CareLevel
             );
 
-
         //Retrieves all plants from the plant service and maps them to a response DTO.
         //Returns a list of responses as 200 OK result.
         private static IResult Handle(IPlantService plantService)
@@ -30,6 +28,7 @@ namespace OperationOOP.Api.Endpoints.Plants
                 Id: item.Id,
                 Name: item.Name,
                 Species: item.Species,
+                //Shows the string value of the CareLevel, not the enumvalue
                 CareLevel: item.CareLevel.ToString()
                 ))
                 .ToList();

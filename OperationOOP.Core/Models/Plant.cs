@@ -23,13 +23,12 @@ namespace OperationOOP.Core.Models
             AgeYears = ageYears;
             CareLevel = careLevel;
         }
-
-        public enum PlantCareLevel
-        {
-            Beginner,
-            Intermediate,
-            Advanced,
-            Master
-        }
+    }
+    public enum PlantCareLevel
+    {
+        Beginner,
+        Intermediate,
+        Advanced,
+        Master
     }
 }
