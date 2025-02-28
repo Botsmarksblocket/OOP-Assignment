@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Options;
 using OperationOOP.Api.Endpoints;
 using OperationOOP.Api.Endpoints.Plants;
+using OperationOOP.Api.Endpoints.StrawberryEndpoint;
+using OperationOOP.Core.Models;
 using OperationOOP.Core.Data;
 using OperationOOP.Core.Interfaces;
 using OperationOOP.Core.Services;
@@ -41,8 +43,8 @@ namespace OperationOOP.Api
 
             app.UseAuthorization();
 
-            Delete.MapEndpoint(app);
-            CreateBonsai.MapEndpoint(app);
+
+
             app.MapEndpoints<Program>();
 
             app.Run();
