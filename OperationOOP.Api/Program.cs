@@ -43,8 +43,6 @@ namespace OperationOOP.Api
 
             app.UseAuthorization();
 
-
-
             app.MapEndpoints<Program>();
 
             app.Run();

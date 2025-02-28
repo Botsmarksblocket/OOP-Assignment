@@ -16,7 +16,7 @@ public class Create : IEndpoint
         int AgeYears,
         PlantCareLevel CareLevel,
         bool HasRipeBerry,
-        bool HasPoisonousBerry
+        bool HasPoisonousBerry = true
         );
 
     public record Response(
@@ -26,7 +26,7 @@ public class Create : IEndpoint
 
     //Creates a new Bonsai object and saves it using IPlantService.
     //Returns a 201 created response with the Bonsai's id
-    public static IResult Handle([AsParameters] Request request, IPlantService plantService)
+    public static IResult Handle(Request request, IPlantService plantService)
     {
         if (request == null) { return Results.NotFound(); }
 
