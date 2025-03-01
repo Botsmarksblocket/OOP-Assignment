@@ -5,17 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OperationOOP.Core.Models
+namespace OperationOOP.Core.Models;
+
+public class DeadlyNightshade : Plant, ICanHaveEdibleBerry
 {
-    public class DeadlyNightshade : Plant, IHasPoisonousBerry
+    public bool HasRipeBerry { get; set; }
+    //DeadlyNightshade berries are poisonous so it's always set to true
+
+    public bool HasPoisonousBerry => true;
+    public DeadlyNightshade(string name, string species, int ageYears, PlantCareLevel careLevel, bool hasRipeBerry)
+        : base(name, species, ageYears, careLevel)
     {
-        public bool HasRipeBerry { get; set; } = false;
-        public bool HasPoisonousBerry { get; set; } = false;
-
-        public DeadlyNightshade(string name, string species, int ageYears, PlantCareLevel careLevel)
-            : base(name, species, ageYears, careLevel)
-        {
-
-        }
+        HasRipeBerry = hasRipeBerry;
     }
 }

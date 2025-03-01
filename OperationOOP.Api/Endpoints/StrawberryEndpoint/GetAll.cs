@@ -24,13 +24,13 @@ public class GetAll : IEndpoint
         var plants = plantService.GetAll();
 
         return Results.Ok(plants.OfType<Strawberry>()
-                           .Select(strawberry => new Response(
-                               strawberry.Id,
-                               strawberry.Name,
-                               strawberry.Species,
-                               strawberry.CareLevel,
-                               strawberry.HasRipeBerry
-                               ))
-                           .ToList());
+                           .Select(s => new Response(
+                               s.Id,
+                               s.Name,
+                               s.Species,
+                               s.CareLevel,
+                               s.HasRipeBerry
+                               )));
+
     }
 }
