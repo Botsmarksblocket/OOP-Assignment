@@ -6,7 +6,7 @@ public class GetAll : IEndpoint
 {
     // Mapping
     public static void MapEndpoint(IEndpointRouteBuilder app) => app
-        .MapGet("/strawberry", Handle);
+        .MapGet("/strawberries", Handle);
 
     // Response
     public record Response(

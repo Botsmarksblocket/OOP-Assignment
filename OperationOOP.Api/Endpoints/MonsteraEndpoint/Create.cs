@@ -24,7 +24,7 @@ public class Create : IEndpoint
 
     //Creates a monstera and saves it to the database using IPlantService.
     //Returns a 201 created response with the monstera nightshades id
-    public static IResult Handle([AsParameters] Request request, IPlantService plantService)
+    public static IResult Handle(Request request, IPlantService plantService)
     {
         if (request == null) { return Results.NotFound(); }
 

@@ -6,7 +6,7 @@ public class GetAll : IEndpoint
 {
     // Mapping
     public static void MapEndpoint(IEndpointRouteBuilder app) => app
-        .MapGet("/deadlynightshade", Handle)
+        .MapGet("/deadlynightshades", Handle)
         .WithSummary("Get all deadly nightshades");
 
     // Response
