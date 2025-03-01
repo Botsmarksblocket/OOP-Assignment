@@ -7,7 +7,8 @@ namespace OperationOOP.Api.Endpoints.Plants
     {
         // Mapping
         public static void MapEndpoint(IEndpointRouteBuilder app) => app
-            .MapGet("/plants", Handle);
+            .MapGet("/plants", Handle)
+            .WithSummary("Get all plants.");
 
         // Response
         public record Response(
@@ -23,15 +24,12 @@ namespace OperationOOP.Api.Endpoints.Plants
         {
             var plants = plantService.GetAll();
 
-            var response = plants.Select
-                (plant => new Response(
+            return Results.Ok(plants.Select(plant => new Response(
                 plant.Id,
                 plant.Name,
                 plant.Species,
                 plant.CareLevel
-                ));
-
-            return Results.Ok(response);
+                )));
         }
     }
 }

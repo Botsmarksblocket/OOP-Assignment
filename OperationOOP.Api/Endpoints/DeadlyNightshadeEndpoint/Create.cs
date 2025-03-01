@@ -23,9 +23,8 @@ public class Create : IEndpoint
         int Id
         );
 
-
-    //Creates a new Bonsai object and saves it using IPlantService.
-    //Returns a 201 created response with the Bonsai's id
+    //Creates a deadly nightshade and saves it to the database using IPlantService.
+    //Returns a 201 created response with the deadly nightshades id
     public static IResult Handle([AsParameters] Request request, IPlantService plantService)
     {
         if (request == null) { return Results.NotFound(); }

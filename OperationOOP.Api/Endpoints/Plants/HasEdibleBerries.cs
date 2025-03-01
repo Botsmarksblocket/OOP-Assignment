@@ -21,8 +21,9 @@ namespace OperationOOP.Api.Endpoints.Plants
 
         public static IResult Handle(IPlantService plantService)
         {
-
             //Filters all Plants with berries, checks if they are OK to eat, and maps them to a Response DTO
+            //Returns a list of responses as 200 OK result.
+
             var plantsWithEdibleBerries = plantService.GetAll()
                  .OfType<ICanHaveEdibleBerry>()
                  .Where(p => p.HasRipeBerry && !p.HasPoisonousBerry)

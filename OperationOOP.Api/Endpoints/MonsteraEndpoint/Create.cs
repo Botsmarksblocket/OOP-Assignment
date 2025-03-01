@@ -1,31 +1,29 @@
 ﻿using OperationOOP.Core.Interfaces;
+using OperationOOP.Core.Models;
 
-
-namespace OperationOOP.Api.Endpoints.StrawberryEndpoint;    
+namespace OperationOOP.Api.Endpoints.MonsteraEndpoint;
 
 public class Create : IEndpoint
 {
     // Mapping
     public static void MapEndpoint(IEndpointRouteBuilder app) => app
-        .MapPost("/strawberry", Handle)
-        .WithSummary("Create Strawberry plant");
+        .MapPost("/monstera", Handle)
+        .WithSummary("Create a monstera plant");
 
     //Request and response
     public record Request(
         string Name,
         string Species,
         int AgeYears,
-        PlantCareLevel CareLevel,
-        bool HasRipeBerry
+        PlantCareLevel CareLevel
         );
 
     public record Response(
         int Id
         );
 
-
-    //Creates a strawberry plant and saves it to the database using IPlantService.
-    //Returns a 201 created response with the strawberrys id
+    //Creates a monstera and saves it to the database using IPlantService.
+    //Returns a 201 created response with the monstera nightshades id
     public static IResult Handle([AsParameters] Request request, IPlantService plantService)
     {
         if (request == null) { return Results.NotFound(); }
@@ -35,11 +33,11 @@ public class Create : IEndpoint
             return Results.BadRequest("Age cannot be negative");
         }
 
-        var strawberry = new Strawberry(request.Name, request.Species, request.AgeYears, request.CareLevel, request.HasRipeBerry);
+        var monstera = new Monstera(request.Name, request.Species, request.AgeYears, request.CareLevel);
 
 
-        plantService.Create(strawberry);
+        plantService.Create(monstera);
 
-        return Results.Created($"/strawberry/{strawberry.Id}", new Response(strawberry.Id));
+        return Results.Created($"/monstera/{monstera.Id}", new Response(monstera.Id));
     }
 }

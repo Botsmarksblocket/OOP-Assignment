@@ -30,7 +30,7 @@ public class GetAll : IEndpoint
                                s.Species,
                                s.CareLevel,
                                s.HasRipeBerry
-                               ))
-                           .ToList());
+                               )));
+
     }
 }
