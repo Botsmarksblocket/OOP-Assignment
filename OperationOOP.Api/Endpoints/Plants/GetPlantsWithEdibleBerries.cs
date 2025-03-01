@@ -3,11 +3,11 @@ using System.Reflection.Metadata;
 
 namespace OperationOOP.Api.Endpoints.Plants
 {
-    public class HasEdibleBerries : IEndpoint
+    public class GetPlantsWithEdibleBerries : IEndpoint
     {
         // Mapping
         public static void MapEndpoint(IEndpointRouteBuilder app) => app
-            .MapGet("/edibleberries", Handle);
+            .MapGet("/plantswithedibleberries", Handle);
 
         //Request and response
         public record Response(
