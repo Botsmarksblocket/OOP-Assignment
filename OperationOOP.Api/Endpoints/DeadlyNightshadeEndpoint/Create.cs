@@ -35,11 +35,7 @@ public class Create : IEndpoint
             return Results.BadRequest("Age cannot be negative");
         }
 
-        
-
-        var deadlyNightshade = new DeadlyNightshade(request.Name, request.Species, request.AgeYears, request.CareLevel, request.HasRipeBerry)
-        {
-        };
+        var deadlyNightshade = new DeadlyNightshade(request.Name, request.Species, request.AgeYears, request.CareLevel, request.HasRipeBerry);
 
 
         plantService.Create(deadlyNightshade);

@@ -25,12 +25,11 @@ namespace OperationOOP.Api.Endpoints.Plants
 
             var response = plants.Select
                 (plant => new Response(
-                Id: plant.Id,
-                Name: plant.Name,
-                Species: plant.Species,
-                CareLevel: plant.CareLevel
-                ))
-                .ToList();
+                plant.Id,
+                plant.Name,
+                plant.Species,
+                plant.CareLevel
+                ));
 
             return Results.Ok(response);
         }
