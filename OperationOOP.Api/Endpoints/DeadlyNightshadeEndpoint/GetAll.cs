@@ -19,7 +19,7 @@ public class GetAll : IEndpoint
         );
 
     //Retrieves all deadly nightshades from the plantservice and maps them to a response DTO.
-    //Returns a list of responses as 200 OK result.
+    //Returns 200 OK result.
     private static IResult Handle(IPlantService plantService)
     {
         var plants = plantService.GetAll();
