@@ -1,6 +1,5 @@
-﻿namespace OperationOOP.Api.Endpoints.DeadlyNightshade
+﻿namespace OperationOOP.Api.Endpoints.DeadlyNightshadeEndpoint;
+
+public class GetAll
 {
-    public class GetAll
-    {
-    }
 }

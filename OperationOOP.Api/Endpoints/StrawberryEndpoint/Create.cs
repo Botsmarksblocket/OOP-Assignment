@@ -39,9 +39,8 @@ public class Create : IEndpoint
             return Results.BadRequest("Age cannot be negative");
         }
 
-        var strawberry = new Strawberry(request.Name, request.Species, request.AgeYears, request.CareLevel)
+        var strawberry = new Strawberry(request.Name, request.Species, request.AgeYears, request.CareLevel, request.HasRipeBerry)
         {
-            HasRipeBerry = request.HasRipeBerry,
         };
 
 

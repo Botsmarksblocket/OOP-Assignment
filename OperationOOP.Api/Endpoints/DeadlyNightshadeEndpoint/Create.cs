@@ -1,4 +1,5 @@
-﻿using OperationOOP.Core.Interfaces;
+﻿using OperationOOP.Core.Models;
+using OperationOOP.Core.Interfaces;
 
 namespace OperationOOP.Api.Endpoints.DeadlyNightshadeEndpoint;
 
@@ -15,8 +16,7 @@ public class Create : IEndpoint
         string Species,
         int AgeYears,
         PlantCareLevel CareLevel,
-        bool HasRipeBerry,
-        bool HasPoisonousBerry = true
+        bool HasRipeBerry
         );
 
     public record Response(
@@ -26,7 +26,7 @@ public class Create : IEndpoint
 
     //Creates a new Bonsai object and saves it using IPlantService.
     //Returns a 201 created response with the Bonsai's id
-    public static IResult Handle(Request request, IPlantService plantService)
+    public static IResult Handle([AsParameters] Request request, IPlantService plantService)
     {
         if (request == null) { return Results.NotFound(); }
 
@@ -35,11 +35,12 @@ public class Create : IEndpoint
             return Results.BadRequest("Age cannot be negative");
         }
 
-        var deadlyNightshade = new Core.Models.DeadlyNightshade(request.Name, request.Species, request.AgeYears, request.CareLevel)
+        
+
+        var deadlyNightshade = new DeadlyNightshade(request.Name, request.Species, request.AgeYears, request.CareLevel, request.HasRipeBerry)
         {
-            HasRipeBerry = request.HasRipeBerry,
-            HasPoisonousBerry = request.HasPoisonousBerry
         };
+
 
         plantService.Create(deadlyNightshade);
 
