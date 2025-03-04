@@ -26,7 +26,6 @@ public class Create : IEndpoint
     //Returns a 201 created response with the monstera nightshades id
     public static IResult Handle(Request request, IPlantService plantService)
     {
-        if (request == null) { return Results.NotFound(); }
 
         if (request.AgeYears < 0)
         {
