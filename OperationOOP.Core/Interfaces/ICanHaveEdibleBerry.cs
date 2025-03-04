@@ -11,15 +11,4 @@ namespace OperationOOP.Core.Interfaces
         bool HasRipeBerry { get; set; }
         bool HasPoisonousBerry { get; }
     }
-
-
-    //public interface IHasEdibleBerry
-    //{
-    //    bool HasEdibleBerry { get; }
-    //}
-
-    //public interface IHasPoisonousBerry
-    //{
-    //    bool HasPoisonousBerry { get; }
-    //}
 }

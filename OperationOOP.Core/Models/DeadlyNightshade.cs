@@ -9,8 +9,9 @@ namespace OperationOOP.Core.Models;
 
 public class DeadlyNightshade : Plant, ICanHaveEdibleBerry
 {
-    public bool HasRipeBerry { get; set; }
     //DeadlyNightshade berries are poisonous so it's always set to true
+
+    public bool HasRipeBerry { get; set; }
 
     public bool HasPoisonousBerry => true;
     public DeadlyNightshade(string name, string species, int ageYears, PlantCareLevel careLevel, bool hasRipeBerry)

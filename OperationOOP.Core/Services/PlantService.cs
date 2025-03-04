@@ -20,12 +20,15 @@ namespace OperationOOP.Core.Services
             _database = database;
         }
 
+        //Get all the plants from the database
         public List<Plant> GetAll() => _database.Plants;
 
+        //Finds specific plant from database
         public Plant GetById(int id)
         {
             return _database.Plants.FirstOrDefault(p => p.Id == id);
         }
+        //Insert a plant in the database and automatically gives it an ID
         public void Create(Plant plant)
         {
             plant.Id = _database.Plants.Any()
@@ -35,6 +38,7 @@ namespace OperationOOP.Core.Services
             _database.Plants.Add(plant);
         }
 
+        //Deletes plant from database by ID
         public void Delete(int id)
         {
             var plant = GetById(id);

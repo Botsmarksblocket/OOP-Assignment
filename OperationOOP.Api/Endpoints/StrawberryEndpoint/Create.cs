@@ -28,8 +28,6 @@ public class Create : IEndpoint
     //Returns a 201 created response with the strawberrys id
     public static IResult Handle(Request request, IPlantService plantService)
     {
-        if (request == null) { return Results.NotFound(); }
-
         if (request.AgeYears < 0)
         {
             return Results.BadRequest("Age cannot be negative");
